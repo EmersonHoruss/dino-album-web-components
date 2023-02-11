@@ -1,4 +1,6 @@
 class AppElement extends HTMLElement {
+    name = this.getAttribute("name") || ""
+
     constructor() {
         super()
         console.log("The component has next attributes: ", this.getAttributeNames())
@@ -14,6 +16,14 @@ class AppElement extends HTMLElement {
     // attributeChangedCallback(name, old, now) {
     attributeChangedCallback(prop, old, now) {
         console.log(`The attribute(component's property) ${prop} has been changed from ${old} to ${now}`)
+    }
+
+    connectedCallBack() {
+        this.innerHTML = /* html */ `
+        <div class="container">
+            <div class="name">${this.name}</div>
+        </div>
+        `
     }
 }
 
