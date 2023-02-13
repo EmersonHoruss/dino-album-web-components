@@ -1,0 +1,10 @@
+Based on:
+https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/for...in
+
+Helpers:
+https://developer.mozilla.org/es/docs/Web/API/Node/appendChild
+https://lenguajejs.com/webcomponents/
+https://stackoverflow.com/questions/597769/how-do-i-create-an-abstract-base-class-in-javascript
+https://stackoverflow.com/questions/7241878/for-in-loops-in-javascript-key-value-pairs
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+https://stackoverflow.com/questions/7241878/for-in-loops-in-javascript-key-value-pairs
