@@ -1,6 +1,6 @@
 import styles from "./app-album-styles.css" assert { type: "css" }
 import template from "./app-album-template.js"
-import data from "./app-album-data.js"
+import data from "../../data/album-data.js"
 import { ComponentUtils } from "../../utils/component-utils.js"
 
 class AppAlbumElement extends HTMLElement {
