@@ -1,0 +1,29 @@
+#layout {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "title"
+    "content"
+    "nav";
+  grid-template-columns: 100%;
+  grid-template-rows: 5rem calc(100% - 10rem) 5rem;
+}
+
+app-title {
+  grid-area: title;
+  background-color: red;
+  display: block;
+}
+
+#content {
+  grid-area: content;
+  background-color: blue;
+  display: block;
+}
+
+app-nav {
+  grid-area: nav;
+  background-color: yellow;
+  display: block;
+}
