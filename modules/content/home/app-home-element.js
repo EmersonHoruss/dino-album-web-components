@@ -1,7 +1,7 @@
-import styles from "./app-about-styles.css" assert { type: "css" }
-import template from "./app-about-template.js"
+import styles from "./app-home-styles.css" assert { type: "css" }
+import template from "./app-home-template.js"
 
-class AppAboutElement extends HTMLElement {
+class AppHomeElement extends HTMLElement {
     constructor() {
         super()
         this.attachShadow({ mode: "open" })
@@ -14,4 +14,4 @@ class AppAboutElement extends HTMLElement {
     }
 }
 
-export default function () { customElements.define("app-about", AppAboutElement) }
+export default function () { customElements.define("app-home", AppHomeElement) }

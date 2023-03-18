@@ -2,7 +2,7 @@ export const ROUTES = [
     {
         path: "/",
         pageName: "Dino's Project",
-        element: `app-about`,
+        element: `app-home`,
     },
     {
         path: "/staff",
