@@ -2,6 +2,7 @@ import styles from "./app-staff-styles.css" assert { type: "css" }
 import shared from "../../shared/shared.css" assert { type: "css" }
 import template from "./app-staff-template.js"
 import albumData from "../../../data/album-data.js"
+import { cleanChildren } from "../../../utils/general-utils.js"
 
 class AppStaffElement extends HTMLElement {
     #staff = albumData
@@ -12,49 +13,45 @@ class AppStaffElement extends HTMLElement {
     }
 
     connectedCallback() {
+        console.log(2)
         this.shadowRoot.adoptedStyleSheets.push(styles)
         this.shadowRoot.adoptedStyleSheets.push(shared)
         const html = template.content.cloneNode((true))
-        const appAlbum = document.createElement("app-album")
-        appAlbum.setAttribute("album", JSON.stringify(this.#staff))
-        html.querySelector("#staff").appendChild(appAlbum)
+        // html.querySelector("#staff").appendChild(appAlbum)
         html.querySelector("app-paginator").setAttribute("total-items", this.#staff.length)
 
-        document.addEventListener("app-paginator:items-per-page", this);
-        document.addEventListener("app-paginator:start", this);
-        document.addEventListener("app-paginator:before", this);
-        document.addEventListener("app-paginator:next", this);
-        document.addEventListener("app-paginator:end", this);
+        document.addEventListener("app-paginator", this);
 
         this.shadowRoot.appendChild(html)
     }
 
     handleEvent(event) {
-        console.log("asdfasdf")
-        switch (event.type) {
-            case "app-paginator:items-per-page":
-                console.log(event.detail)
-                break;
-
-            case "app-paginator:start":
-                console.log(event.detail)
-                break;
-
-            case "app-paginator:before":
-                console.log(event.detail)
-                break;
-
-            case "app-paginator:next":
-                console.log(event.detail)
-                break;
-
-            case "app-paginator:end":
-                console.log(event.detail)
-                break;
-
-            default:
-                break;
+        if (event.type === "app-paginator") {
+            const itemsPerPage = event.detail.itemsPerPage
+            const currentPage = event.detail.currentPage
+            this.#cleanStaff()
+            this.#loadStaff(itemsPerPage, currentPage)
         }
+    }
+
+    #cleanStaff() {
+        const staffElement = this.shadowRoot.querySelector("#staff")
+        cleanChildren(staffElement)
+    }
+
+    #loadStaff(itemsPerPage, currentPage) {
+        const paginatedStaff = this.#paginatedStaff(itemsPerPage, currentPage)
+        const staffElement = this.shadowRoot.querySelector("#staff")
+        const appAlbum = document.createElement("app-album")
+        appAlbum.setAttribute("album", JSON.stringify(paginatedStaff))
+        staffElement.appendChild(appAlbum)
+    }
+
+    #paginatedStaff(itemsPerPage, currentPage) {
+        const end = currentPage * itemsPerPage
+        const start = end - itemsPerPage
+
+        return this.#staff.slice(start, end)
     }
 }
 

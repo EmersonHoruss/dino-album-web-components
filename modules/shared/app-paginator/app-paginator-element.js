@@ -35,60 +35,39 @@ class AppPaginatorElement extends HTMLElement {
             switch (elementId) {
                 case "items-per-page":
                     const selectedItempPerPage = parseInt(elementHTML.value)
-                    if(this.#itemsPerPage !== selectedItempPerPage){
+                    if (this.#itemsPerPage !== selectedItempPerPage) {
                         this.#itemsPerPage = selectedItempPerPage
                         this.#currentPage = 1
-                        detail = {
-                            itemsPerPage: this.itemsPerPage
-                        }
                         this.#totalPages = this.#calculateTotalPages()
-                    }
+                    } 
                     break;
 
                 case "start":
                     this.#currentPage = 1
-                    detail = {
-                        currentPage: 1
-                    }
                     break;
 
                 case "before":
                     const beforePage = this.#currentPage - 1
-                    if(beforePage !== 0){
+                    if (beforePage !== 0) {
                         this.#currentPage = beforePage
-                        detail = {
-                            currentPage: this.#currentPage
-                        }
                     }
                     break;
 
                 case "next":
                     const nextPage = this.#currentPage + 1
-                    if(nextPage <= this.#totalPages){
+                    if (nextPage <= this.#totalPages) {
                         this.#currentPage = nextPage
-                        detail = {
-                            currentPage: 1
-                        }
                     }
                     break;
 
                 case "end":
                     this.#currentPage = this.#totalPages
-                    detail = {
-                        currentPage: this.#totalPages
-                    }
                     break;
             }
 
             this.#updateContentRange()
 
-            const eventComponent = new CustomEvent(`app-paginator:${elementId}`, {
-                detail,
-                bubbles: true,
-                composed: true
-            })
-
-            this.dispatchEvent(eventComponent)
+            this.#emitEvent()
         }
     }
 
@@ -104,7 +83,21 @@ class AppPaginatorElement extends HTMLElement {
         if (name === "total-items") {
             this.#totalItems = parseInt(now)
             this.#totalPages = this.#calculateTotalPages()
+            this.#emitEvent()
         }
+    }
+
+    #emitEvent() {
+        const eventComponent = new CustomEvent(`app-paginator`, {
+            detail: {
+                itemsPerPage: this.#itemsPerPage,
+                currentPage: this.#currentPage
+            },
+            bubbles: true,
+            composed: true
+        })
+
+        this.dispatchEvent(eventComponent)
     }
 
     #calculateTotalPages() {

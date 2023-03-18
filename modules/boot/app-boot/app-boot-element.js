@@ -2,6 +2,7 @@ import styles from "./app-boot-styles.css" assert { type: "css" }
 import template from "./app-boot-template.js"
 import { Router } from "../router.js";
 import { getElement } from "../routes.js";
+import { cleanChildren } from "../../../utils/general-utils.js";
 
 class AppBootElement extends HTMLElement {
     #router = null
@@ -26,7 +27,7 @@ class AppBootElement extends HTMLElement {
             const path = event.state.path
             this.#router.handlerPath(path, false)
             this.shadowRoot.querySelector("app-nav").setAttribute("current-path", path)
-            this.#cleanNodes()
+            this.#cleanContent()
             this.#loadContent(path)
         })
     }
@@ -36,7 +37,7 @@ class AppBootElement extends HTMLElement {
             const path = event.detail.path
             this.#router.handlerPath(path)
             this.shadowRoot.querySelector("app-nav").setAttribute("current-path", path)
-            this.#cleanNodes()
+            this.#cleanContent()
             this.#loadContent(path)
         }
     }
@@ -51,15 +52,9 @@ class AppBootElement extends HTMLElement {
         this.shadowRoot.getElementById("content").appendChild(component)
     }
 
-    #cleanNodes() {
-        const content = this.shadowRoot.getElementById("content")
-        const children = content.children
-
-        if (children.length) {
-            for (let i = 0; i < children.length; i++) {
-                content.removeChild(content.children[i])
-            }
-        }
+    #cleanContent() {
+        const contentElement = this.shadowRoot.getElementById("content")
+        cleanChildren(contentElement)
     }
 }
 
