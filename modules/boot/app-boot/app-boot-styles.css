@@ -19,6 +19,7 @@ app-title {
 #content {
   grid-area: content;
   display: block;
+  background-color: white;
 }
 
 app-nav {

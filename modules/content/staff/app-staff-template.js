@@ -1,7 +1,7 @@
 const template = document.createElement("template")
 
 template.innerHTML = `
-<div id="staff-wrapper">
+<div id="staff-wrapper" class="wrapper">
     <div id="staff"></div>
     lorem*10
 
