@@ -15,7 +15,7 @@ class AppStaffElement extends HTMLElement {
         const html = template.content.cloneNode((true))
         const appAlbum = document.createElement("app-album")
         appAlbum.setAttribute("album", JSON.stringify(this.#staff))
-        html.appendChild(appAlbum)
+        html.querySelector("#staff").appendChild(appAlbum)
         html.querySelector("app-paginator").setAttribute("total-items", this.#staff.length)
         this.shadowRoot.appendChild(html)
     }

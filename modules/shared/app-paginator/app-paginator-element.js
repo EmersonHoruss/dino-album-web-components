@@ -101,7 +101,6 @@ class AppPaginatorElement extends HTMLElement {
     }
 
     attributeChangedCallback(name, old, now) {
-        console.log(0)
         if (name === "total-items") {
             this.#totalItems = parseInt(now)
             this.#totalPages = this.#calculateTotalPages()
