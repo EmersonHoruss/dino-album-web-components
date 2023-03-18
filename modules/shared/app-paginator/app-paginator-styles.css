@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#paginator {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-areas:
+    ". range ."
+    ". navigation ."
+    ". page-size .";
+
+  gap: 1rem;
+}
+
+#page-size {
+  grid-area: page-size;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+#range {
+  grid-area: range;
+  display: flex;
+  justify-content: center;
+}
+
+#navigation {
+  grid-area: navigation;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  #paginator {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 2rem;
+  }
+}

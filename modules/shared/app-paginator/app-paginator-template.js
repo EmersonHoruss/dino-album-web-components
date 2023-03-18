@@ -19,8 +19,6 @@ template.innerHTML = `
         <span id="total-pages"></span>
     </p>
 
-    <p id="range2"></p>
-    
     <div id="navigation">
         <button id="start">Start</button>
         <button id="before">Before</button>
