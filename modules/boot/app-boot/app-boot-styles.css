@@ -18,7 +18,6 @@ app-title {
 
 #content {
   grid-area: content;
-  background-color: blue;
   display: block;
 }
 

@@ -14,9 +14,9 @@ class AppCardElement extends HTMLElement {
     connectedCallback() {
         this.shadowRoot.adoptedStyleSheets.push(styles)
         const html = template.content.cloneNode((true))
-        html.querySelector("img").setAttribute('src', this.img)
-        html.querySelector("h1").textContent = this.title
-        html.querySelector("p").textContent = this.description
+        html.querySelector("#img").setAttribute('src', this.img)
+        html.querySelector("#title").textContent = this.title
+        html.querySelector("#description").textContent = this.description
         this.shadowRoot.appendChild(html)
     }
 

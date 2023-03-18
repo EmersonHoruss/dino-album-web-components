@@ -24,6 +24,7 @@ class AppAlbumElement extends HTMLElement {
 
     #buildHtml() {
         const html = template.content.cloneNode((true))
+        const album = html.querySelector("#album")
 
         this.#album.forEach(
             card => {
@@ -35,7 +36,7 @@ class AppAlbumElement extends HTMLElement {
                         description: card.description
                     }
                 ))
-                html.appendChild(appCard)
+                album.appendChild(appCard)
             }
         )
 

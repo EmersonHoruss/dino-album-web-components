@@ -1,7 +1,7 @@
 const template = document.createElement("template")
 
 template.innerHTML = `
-<div class="album">
+<div id="album">
     
 </div>
 `

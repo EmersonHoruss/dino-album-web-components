@@ -1,0 +1,43 @@
+#card {
+  width: 100%;
+  height: 350px;
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 12PX 4px rgba(0, 0, 0, 0.1);
+}
+
+#img-wrapper {
+  width: 100%;
+  height: 200px;
+  background-color: rgb(240, 240, 240);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+#content {
+  padding: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  margin-top: 0.5rem;
+}
+
+#title {
+  font-size: 1.25rem;
+  margin: 0;
+  padding: 0;
+}
+
+#description {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
