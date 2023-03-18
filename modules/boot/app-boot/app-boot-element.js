@@ -20,10 +20,13 @@ class AppBootElement extends HTMLElement {
 
         document.addEventListener("app-nav:clicked-item", this);
 
+        this.#loadContent(location.pathname)
+
         window.addEventListener("popstate", event => {
             const path = event.state.path
             this.#router.handlerPath(path, false)
             this.shadowRoot.querySelector("app-nav").setAttribute("current-path", path)
+            this.#cleanNodes()
             this.#loadContent(path)
         })
     }
@@ -33,6 +36,7 @@ class AppBootElement extends HTMLElement {
             const path = event.detail.path
             this.#router.handlerPath(path)
             this.shadowRoot.querySelector("app-nav").setAttribute("current-path", path)
+            this.#cleanNodes()
             this.#loadContent(path)
         }
     }
@@ -41,6 +45,17 @@ class AppBootElement extends HTMLElement {
         const element = getElement(path)
         const component = document.createElement(element)
         this.shadowRoot.getElementById("content").appendChild(component)
+    }
+
+    #cleanNodes() {
+        const content = this.shadowRoot.getElementById("content")
+        const children = content.children
+
+        if (children.length) {
+            for (let i = 0; i < children.length; i++) {
+                content.removeChild(content.children[i])
+            }
+        }
     }
 }
 

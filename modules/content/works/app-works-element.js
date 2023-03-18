@@ -11,6 +11,13 @@ class AppWorksElement extends HTMLElement {
         this.shadowRoot.adoptedStyleSheets.push(styles)
         const html = template.content.cloneNode((true))
         this.shadowRoot.appendChild(html)
+        this.#loadContent()
+    }
+
+    #loadContent() {
+        // const component = document.createElement("app-paginator")
+        // console.log(component)
+        // this.shadowRoot.getElementById("paginator").appendChild(component)
     }
 }
 
