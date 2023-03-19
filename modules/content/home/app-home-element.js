@@ -2,7 +2,7 @@ import styles from "./app-home-styles.css" assert { type: "css" }
 import template from "./app-home-template.js"
 
 class AppHomeElement extends HTMLElement {
-    items = [
+    #items = [
         "assets/img/companies/adidas.png",
         "assets/img/companies/amazon.png",
         "assets/img/companies/apple.png",
@@ -39,7 +39,7 @@ class AppHomeElement extends HTMLElement {
     connectedCallback() {
         this.shadowRoot.adoptedStyleSheets.push(styles)
         const html = template.content.cloneNode((true))
-        html.querySelector("app-carousel").setAttribute("items", JSON.stringify(this.items))
+        html.querySelector("app-carousel").setAttribute("items", JSON.stringify(this.#items))
         this.shadowRoot.appendChild(html)
     }
 }
