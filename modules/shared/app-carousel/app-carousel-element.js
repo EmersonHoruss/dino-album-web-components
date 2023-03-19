@@ -198,7 +198,7 @@ class AppCarouselElement extends HTMLElement {
     #autoplay() {
         this.#autoPlayRef = setInterval(() => {
             this.#next()
-        }, 100);
+        }, 3000);
     }
 
     disconnectedCallback() {
