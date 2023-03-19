@@ -3,36 +3,9 @@ import styles from "./app-carousel-styles.css" assert { type: "css" }
 import template from "./app-carousel-template.js"
 
 class AppCarouselElement extends HTMLElement {
-    items = [
-        "assets/img/companies/adidas.png",
-        "assets/img/companies/amazon.png",
-        "assets/img/companies/apple.png",
-        "assets/img/companies/bmw.png",
-        "assets/img/companies/cisco.png",
-        "assets/img/companies/coca-cola.png",
-        "assets/img/companies/facebook.png",
-        "assets/img/companies/fast-delivery-fast.png",
-        "assets/img/companies/google.png",
-        "assets/img/companies/gucci.png",
-        "assets/img/companies/ibm.png",
-        "assets/img/companies/kfc.png",
-        "assets/img/companies/mcdonald.png",
-        "assets/img/companies/microsoft.png",
-        "assets/img/companies/nasa.png",
-        "assets/img/companies/netflix.png",
-        "assets/img/companies/nokia.png",
-        "assets/img/companies/pepsi.png",
-        "assets/img/companies/ryzen.png",
-        "assets/img/companies/samsung.png",
-        "assets/img/companies/shell.png",
-        "assets/img/companies/sony.png",
-        "assets/img/companies/starbucks.png",
-        "assets/img/companies/tiktok.png",
-        "assets/img/companies/toyota.png",
-        "assets/img/companies/xbox.png",
-    ]
+    #items = []
 
-    configurations = [
+    #configurations = [
         {
             minContentWidth: 300,
             maxContentWidth: 639,
@@ -50,7 +23,7 @@ class AppCarouselElement extends HTMLElement {
         }
     ]
 
-    sizeImg = "64px"
+    #sizeImg = "64px"
 
     #autoPlayRef = null
 
@@ -103,9 +76,9 @@ class AppCarouselElement extends HTMLElement {
         item.style.alignItems = "center"
 
         const img = document.createElement("img")
-        img.setAttribute("src", this.items[i])
-        img.setAttribute("width", this.sizeImg)
-        img.setAttribute("height", this.sizeImg)
+        img.setAttribute("src", this.#items[i])
+        img.setAttribute("width", this.#sizeImg)
+        img.setAttribute("height", this.#sizeImg)
 
         item.appendChild(img)
 
@@ -115,14 +88,14 @@ class AppCarouselElement extends HTMLElement {
     #getItemsIndex(pivot, direction) {
         const itemsNumber = this.#getItemsNumber()
         const itemsIndex = []
-        const maxLength = this.items.length - 1
+        const maxLength = this.#items.length - 1
         const minLength = 0
 
         if (direction === "next") {
             for (let i = 0; i < itemsNumber; i++) {
                 let index = pivot + i
                 if (index > maxLength) {
-                    index = index - this.items.length
+                    index = index - this.#items.length
                 }
 
                 itemsIndex.push(index)
@@ -133,11 +106,11 @@ class AppCarouselElement extends HTMLElement {
             for (let i = 0; i < itemsNumber; i++) {
                 let index = pivot + i
                 if (index < minLength) {
-                    index = this.items.length + index
+                    index = this.#items.length + index
                 }
 
-                if (index >= this.items.length) {
-                    index = index - this.items.length
+                if (index >= this.#items.length) {
+                    index = index - this.#items.length
                 }
 
                 itemsIndex.push(index)
@@ -149,8 +122,8 @@ class AppCarouselElement extends HTMLElement {
 
     #getItemsNumber() {
         const contentWidth = this.#getContentWidth()
-        for (let i = 0; i < this.configurations.length; i++) {
-            const configuration = this.configurations[i];
+        for (let i = 0; i < this.#configurations.length; i++) {
+            const configuration = this.#configurations[i];
             if (contentWidth >= configuration.minContentWidth && contentWidth <= configuration.maxContentWidth) {
                 return configuration.itemsNumber
             }
@@ -192,7 +165,7 @@ class AppCarouselElement extends HTMLElement {
         const img = firstItem.children[0]
         const srcImg = img.getAttribute("src")
 
-        return this.items.findIndex(e => e === srcImg)
+        return this.#items.findIndex(e => e === srcImg)
     }
 
     #autoplay() {
@@ -204,6 +177,16 @@ class AppCarouselElement extends HTMLElement {
     disconnectedCallback() {
         if (this.#autoPlayRef) {
             clearInterval(this.#autoPlayRef)
+        }
+    }
+
+    static get observedAttributes() {
+        return ["items"]
+    }
+
+    attributeChangedCallback(name, old, now) {
+        if (name === "items") {
+            this.#items = JSON.parse(now)
         }
     }
 }
