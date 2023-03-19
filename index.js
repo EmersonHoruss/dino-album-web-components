@@ -1,3 +1,5 @@
+import "./node_modules/@lottiefiles/lottie-player/dist/lottie-player.js";
+
 import "./modules/boot/boot-module.js"
 import "./modules/content/content-module.js"
 import "./modules/shared/shared-module.js"

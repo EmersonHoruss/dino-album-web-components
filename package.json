@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/EmersonHoruss/dino-album-web-components/issues"
   },
-  "homepage": "https://github.com/EmersonHoruss/dino-album-web-components#readme"
+  "homepage": "https://github.com/EmersonHoruss/dino-album-web-components#readme",
+  "dependencies": {
+    "@lottiefiles/lottie-player": "^1.7.1"
+  }
 }
