@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#carousel {
+  width: 100%;
+  max-width: 100%;
+  height: 3rem;
+  display: grid;
+  grid-template-columns: 2rem calc(100% - 4rem) 2rem;
+}
+
+#content {
+  display: flex;
+  height: 3rem;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}

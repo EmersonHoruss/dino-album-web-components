@@ -13,7 +13,6 @@ class AppStaffElement extends HTMLElement {
     }
 
     connectedCallback() {
-        console.log(2)
         this.shadowRoot.adoptedStyleSheets.push(styles)
         this.shadowRoot.adoptedStyleSheets.push(shared)
         const html = template.content.cloneNode((true))
