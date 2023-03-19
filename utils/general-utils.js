@@ -1,9 +1,9 @@
 export function cleanChildren(element) {
-    const children = element.children
-
-    if (children.length) {
-        for (let i = 0; i < children.length; i++) {
-            element.removeChild(element.children[i])
-        }
+    while (existChildren(element)) {
+        element.removeChild(element.children[0])
     }
+}
+
+function existChildren(element) {
+    return !!element.children.length
 }
