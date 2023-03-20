@@ -13,10 +13,8 @@
     var(--nav-page-height);
 }
 
-app-title {
+app-header {
   grid-area: title;
-  background-color: red;
-  display: block;
 }
 
 #wrapper-content {
@@ -34,14 +32,13 @@ app-title {
 app-nav {
   grid-area: nav;
   background-color: yellow;
-  display: block;
 }
 
 .closed-nav-layout {
   grid-template-areas:
-    "title"
-    "content"
-    "content";
+    "title title"
+    "content content"
+    "content content";
   grid-template-columns: 100%;
 }
 
