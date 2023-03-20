@@ -7,7 +7,7 @@ class AppCarouselElement extends HTMLElement {
 
     #configurations = [
         {
-            minContentWidth: 300,
+            minContentWidth: 200,
             maxContentWidth: 639,
             itemsNumber: 3
         },
@@ -161,6 +161,7 @@ class AppCarouselElement extends HTMLElement {
 
     #getPivot() {
         const contentElement = this.shadowRoot.querySelector("#content")
+        console.log(this.shadowRoot.querySelector("#content"))
         const firstItem = contentElement.children[0]
         const img = firstItem.children[0]
         const srcImg = img.getAttribute("src")
