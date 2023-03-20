@@ -19,6 +19,12 @@ large:    > 1008px
 
   --top-small: 2rem;
   --bottom-small: 2rem;
+
+  --top-medium: 3rem;
+  --bottom-medium: 3rem;
+
+  --top-large: 4rem;
+  --bottom-large: 4rem;
 }
 
 .wrapper {
@@ -51,6 +57,19 @@ large:    > 1008px
   .full-view {
     min-height: calc(100vh - var(--title-page-height));
   }
+
+  .top,
+  .bottom {
+    height: var(--top-medium);
+  }
+
+  .top-as-padding {
+    padding-top: var(--top-medium);
+  }
+
+  .bottom-as-padding {
+    padding-bottom: var(--top-medium);
+  }
 }
 
 @media (min-width: 1008px) {
@@ -60,5 +79,18 @@ large:    > 1008px
 
   .full-view {
     min-height: calc(100vh - var(--title-page-height));
+  }
+
+  .top,
+  .bottom {
+    height: var(--top-large);
+  }
+
+  .top-as-padding {
+    padding-top: var(--top-large);
+  }
+
+  .bottom-as-padding {
+    padding-bottom: var(--top-large);
   }
 }
