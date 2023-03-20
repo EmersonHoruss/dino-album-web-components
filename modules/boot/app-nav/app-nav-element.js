@@ -1,3 +1,4 @@
+import shared from "../../shared/shared.css" assert { type: "css" }
 import styles from "./app-nav-styles.css" assert { type: "css" }
 import template from "./app-nav-template.js"
 
@@ -12,6 +13,7 @@ class AppNavElement extends HTMLElement {
 
     connectedCallback() {
         this.shadowRoot.adoptedStyleSheets.push(styles)
+        this.shadowRoot.adoptedStyleSheets.push(shared)
         const html = template.content.cloneNode((true))
         html.querySelectorAll("button").forEach(element => {
             element.addEventListener("click", this)

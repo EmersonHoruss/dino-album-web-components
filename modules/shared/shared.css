@@ -13,8 +13,9 @@ large:    > 1008px
   --nav-page-height: 5rem;
   --out-content-height: calc(var(--title-page-height) + var(--nav-page-height));
   --layout-content-height: calc(100% - var(--out-content-height));
+  
   --layout-nav-width: 10rem;
-  --layout-content-width: calc(100% - var(var(--layout-content-width)))
+  --layout-content-width: calc(100% - var(--layout-nav-width));
 
   --padding-x-small: 1rem;
   --padding-x-medium: 2rem;

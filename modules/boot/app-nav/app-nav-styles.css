@@ -10,3 +10,11 @@
   background-color: blue;
   color: white;
 }
+
+@media (min-width: 640px) {
+  .nav {
+    flex-direction: column;
+    justify-content: start;
+    width: 100%;
+  }
+}

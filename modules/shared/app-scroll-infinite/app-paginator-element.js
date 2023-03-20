@@ -10,27 +10,18 @@ class AppPaginatorElement extends HTMLElement {
     connectedCallback() {
         this.shadowRoot.adoptedStyleSheets.push(styles)
         const html = template.content.cloneNode((true))
-        
         this.shadowRoot.appendChild(html);
-
-        this.#updateContentRange()
     }
 
     handleEvent(event) {
-        
     }
 
     static get observedAttributes() {
-        return ["total-items"]
+        return []
     }
 
     attributeChangedCallback(name, old, now) {
-        if (name === "total-items") {
-            this.#totalItems = parseInt(now)
-            this.#totalPages = this.#calculateTotalPages()
-        }
     }
-
 }
 
 export default function () { customElements.define("app-paginator", AppPaginatorElement) }
