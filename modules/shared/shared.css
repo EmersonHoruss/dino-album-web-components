@@ -16,6 +16,9 @@ large:    > 1008px
   --padding-x-small: 1rem;
   --padding-x-medium: 2rem;
   --padding-x-large: 4rem;
+
+  --top-small: 2rem;
+  --bottom-small: 2rem;
 }
 
 .wrapper {
@@ -25,6 +28,19 @@ large:    > 1008px
 .full-view {
   width: 100%;
   min-height: calc(100vh - var(--out-content-height));
+}
+
+.top,
+.bottom {
+  height: var(--top-small);
+}
+
+.top-as-padding {
+  padding-top: var(--top-small);
+}
+
+.bottom-as-padding {
+  padding-bottom: var(--top-small);
 }
 
 @media (min-width: 640px) {

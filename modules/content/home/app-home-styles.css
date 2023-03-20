@@ -1,33 +1,52 @@
-#home {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
+* {
+  --lottie-height: 250px;
+  --app-home-title-height: 4.5rem;
+  --content-height: calc(
+    100% - (var(--lottie-height) + var(--app-home-title-height))
+  );
 }
 
 section {
+  display: grid;
+  grid-template-rows:
+    var(--app-home-title-height)
+    var(--lottie-height)
+    var(--content-height);
+  grid-template-areas:
+    "title"
+    "lottie"
+    "content";
+}
+
+.title {
+  grid-area: title;
+  font-size: 2.5rem;
+}
+
+.wrapper-lottie {
+  grid-area: lottie;
+}
+
+.content {
+  grid-area: content;
   display: flex;
-  flex-direction: column;
+  font-size: 1.1rem;
+}
+
+.title,
+.wrapper-lottie,
+.content {
+  display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 app-carousel {
+  padding-top: 2rem;
   width: 100%;
   min-width: 100%;
 }
 
-h2 {
-  font-size: 3rem;
-}
-
 lottie-player {
-  width: 300px;
-  height: 300px;
-}
-
-@media (min-width: 640px) {
-  section {
-    min-height: calc(100vh - 5rem);
-  }
+  width: var(--lottie-height);
+  height: var(--lottie-height);
 }
