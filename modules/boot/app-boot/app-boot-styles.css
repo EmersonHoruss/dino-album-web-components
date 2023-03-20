@@ -37,6 +37,18 @@ app-nav {
   display: block;
 }
 
+.closed-nav-layout {
+  grid-template-areas:
+    "title"
+    "content"
+    "content";
+  grid-template-columns: 100%;
+}
+
+.no-nav {
+  display: none;
+}
+
 @media (min-width: 640px) {
   #layout {
     grid-template-areas:

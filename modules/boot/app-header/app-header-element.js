@@ -12,10 +12,19 @@ class AppHeaderElement extends HTMLElement {
         this.shadowRoot.adoptedStyleSheets.push(styles)
         this.shadowRoot.adoptedStyleSheets.push(shared)
         const html = template.content.cloneNode((true))
+        html.querySelector("#toggle-nav").addEventListener("click", this)
         this.shadowRoot.appendChild(html);
     }
 
     handleEvent(event) {
+        if (event.type === "click") {
+            const eventComponent = new CustomEvent("app-header:clicked-toggle-nav", {
+                bubbles: true,
+                composed: true
+            })
+
+            this.dispatchEvent(eventComponent)
+        }
     }
 
     static get observedAttributes() {

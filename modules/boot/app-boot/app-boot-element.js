@@ -7,6 +7,7 @@ import { cleanChildren } from "../../../utils/general-utils.js";
 
 class AppBootElement extends HTMLElement {
     #router = null
+    #isOpenNav = true
 
     constructor() {
         super()
@@ -22,6 +23,7 @@ class AppBootElement extends HTMLElement {
         this.shadowRoot.appendChild(html)
 
         document.addEventListener("app-nav:clicked-item", this);
+        document.addEventListener("app-header:clicked-toggle-nav", this);
 
         this.#loadContent(location.pathname)
 
@@ -42,6 +44,23 @@ class AppBootElement extends HTMLElement {
             this.#cleanContent()
             this.#loadContent(path)
         }
+
+        if (event.type === "app-header:clicked-toggle-nav") {
+            if (this.#isOpenNav) { console.log("close nav"); this.#closeNav() }
+            if (!this.#isOpenNav) { console.log("open nav"); this.#openNav() }
+
+            this.#isOpenNav = !this.#isOpenNav
+        }
+    }
+
+    #closeNav() {
+        this.shadowRoot.querySelector("#layout").setAttribute("class", "closed-nav-layout")
+        this.shadowRoot.querySelector("app-nav").setAttribute("class", "no-nav")
+    }
+
+    #openNav() {
+        this.shadowRoot.querySelector("#layout").setAttribute("class", "")
+        this.shadowRoot.querySelector("app-nav").setAttribute("class", "")
     }
 
     #loadContent(path) {
