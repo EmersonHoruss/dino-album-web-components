@@ -1,0 +1,31 @@
+Búsqueda por nombre y/o por profesion
+
+Staff
+Name
+Last name
+Celular phone
+Description
+Professions
+Experiencia
+Capacitación
+
+Projects
+Park, Edificio
+	Constructor
+	Ingeniero civil
+	Capataz
+
+Videojuego
+	Analista de software
+	Diseñador
+	Programador
+	Tester
+	Manager
+
+Cena, almuerzo
+	Cocinero
+	Mozo
+	Jefe
+
+
+Tipo de empresa(starup, externo: nombre del dueño)
