@@ -2,7 +2,7 @@ const template = document.createElement("template")
 
 template.innerHTML = `
 <div id="layout">
-    <app-title></app-title>
+    <app-header></app-header>
     <div id="wrapper-content">
         <div id="content"></div>
         <app-footer></app-footer>

@@ -1,0 +1,39 @@
+#header {
+  width: 100%;
+  height: var(--title-page-height);
+  box-shadow: inset black 0 -3px 8px -7px;
+  display: grid;
+  grid-template-areas: "toggle-nav enterprise title-page . user-options";
+  grid-template-columns: 4rem 15rem auto 15rem 4rem;
+  padding: 1rem;
+}
+
+#toggle-nav {
+  grid-area: toggle-nav;
+}
+
+#enterprise {
+  grid-area: enterprise;
+}
+
+#title-page {
+  grid-area: title-page;
+  justify-content: center;
+}
+
+#user-options {
+  grid-area: user-options;
+}
+
+#toggle-nav,
+#enterprise,
+#title-page,
+#user-options {
+  display: flex;
+  align-items: center;
+}
+
+h1,
+span {
+  font-size: 1.3rem;
+}
