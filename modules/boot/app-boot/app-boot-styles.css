@@ -39,8 +39,7 @@ app-nav {
   grid-template-areas:
     "title title"
     "content content"
-    "content content";
-  grid-template-columns: 100%;
+    "content content" !important;
 }
 
 .no-nav {
