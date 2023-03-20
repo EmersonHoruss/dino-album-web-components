@@ -1,4 +1,5 @@
 import styles from "./app-boot-styles.css" assert { type: "css" }
+import shared from "../../shared/shared.css" assert { type: "css" }
 import template from "./app-boot-template.js"
 import { Router } from "../router.js";
 import { getElement } from "../routes.js";
@@ -15,6 +16,7 @@ class AppBootElement extends HTMLElement {
 
     connectedCallback() {
         this.shadowRoot.adoptedStyleSheets.push(styles)
+        this.shadowRoot.adoptedStyleSheets.push(shared)
         const html = template.content.cloneNode((true))
         html.querySelector("app-nav").setAttribute("current-path", location.pathname)
         this.shadowRoot.appendChild(html)
