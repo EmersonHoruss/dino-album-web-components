@@ -1,36 +1,10 @@
 import styles from "./app-home-styles.css" assert { type: "css" }
+import shared from "../../shared/shared.css" assert {type: "css"}
 import template from "./app-home-template.js"
+import { companies } from "../../../data/companies-data.js"
+import { lotties } from "../../../data/lotties-data.js"
 
 class AppHomeElement extends HTMLElement {
-    #items = [
-        "assets/img/companies/adidas.png",
-        "assets/img/companies/amazon.png",
-        "assets/img/companies/apple.png",
-        "assets/img/companies/bmw.png",
-        "assets/img/companies/cisco.png",
-        "assets/img/companies/coca-cola.png",
-        "assets/img/companies/facebook.png",
-        "assets/img/companies/fast-delivery-fast.png",
-        "assets/img/companies/google.png",
-        "assets/img/companies/gucci.png",
-        "assets/img/companies/ibm.png",
-        "assets/img/companies/kfc.png",
-        "assets/img/companies/mcdonald.png",
-        "assets/img/companies/microsoft.png",
-        "assets/img/companies/nasa.png",
-        "assets/img/companies/netflix.png",
-        "assets/img/companies/nokia.png",
-        "assets/img/companies/pepsi.png",
-        "assets/img/companies/ryzen.png",
-        "assets/img/companies/samsung.png",
-        "assets/img/companies/shell.png",
-        "assets/img/companies/sony.png",
-        "assets/img/companies/starbucks.png",
-        "assets/img/companies/tiktok.png",
-        "assets/img/companies/toyota.png",
-        "assets/img/companies/xbox.png",
-    ]
-
     constructor() {
         super()
         this.attachShadow({ mode: "open" })
@@ -38,8 +12,12 @@ class AppHomeElement extends HTMLElement {
 
     connectedCallback() {
         this.shadowRoot.adoptedStyleSheets.push(styles)
+        this.shadowRoot.adoptedStyleSheets.push(shared)
         const html = template.content.cloneNode((true))
-        html.querySelector("app-carousel").setAttribute("items", JSON.stringify(this.#items))
+        html.querySelector("#about").querySelector("lottie-player").setAttribute("src", lotties.about)
+        html.querySelector("#founder").querySelector("lottie-player").setAttribute("src", lotties.founder)
+        html.querySelector("#clients").querySelector("lottie-player").setAttribute("src", lotties.clients)
+        html.querySelector("app-carousel").setAttribute("items", JSON.stringify(companies))
         this.shadowRoot.appendChild(html)
     }
 }
