@@ -15,6 +15,7 @@
 
 app-header {
   grid-area: title;
+  display: block;
 }
 
 #wrapper-content {

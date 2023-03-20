@@ -5,7 +5,7 @@ template.innerHTML = `
     <button id="toggle-nav">Close</button>
     
     <div id="enterprise">
-        <img id="logo" src="assets/img/logo.png">
+        <img class="logo" src="assets/img/logo.png">
         <span>Dinos' Projects</span>
     </div>
     
@@ -13,10 +13,10 @@ template.innerHTML = `
         <h1>Test title</h1>
     </div>
 
-    <button id="user-options">Options</button>
+    <div id="user-options">
+        <img class="logo" src="">
+    </div>
 </div>
-
-
 `
 
 export default template
