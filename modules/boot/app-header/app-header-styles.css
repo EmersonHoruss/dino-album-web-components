@@ -14,6 +14,9 @@
 
 #enterprise {
   grid-area: enterprise;
+  padding-left: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 #title-page {
@@ -33,7 +36,18 @@
   align-items: center;
 }
 
-h1,
 span {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-size: 1.4rem;
+}
+
+#logo {
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
 }

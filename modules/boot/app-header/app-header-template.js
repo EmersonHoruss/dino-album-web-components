@@ -5,7 +5,7 @@ template.innerHTML = `
     <button id="toggle-nav">Close</button>
     
     <div id="enterprise">
-        <img id="logo">
+        <img id="logo" src="assets/img/logo.png">
         <span>Dinos' Projects</span>
     </div>
     
