@@ -1,8 +1,9 @@
 * {
-  --lottie-height: 250px;
+  --wrapper-lottie-height: 300px;
+  --lottie-height: 280px;
   --app-home-title-height: 4.5rem;
   --content-height: calc(
-    100% - (var(--lottie-height) + var(--app-home-title-height))
+    100% - (var(--wrapper-lottie-height) + var(--app-home-title-height))
   );
 }
 
@@ -10,7 +11,7 @@ section {
   display: grid;
   grid-template-rows:
     var(--app-home-title-height)
-    var(--lottie-height)
+    var(--wrapper-lottie-height)
     var(--content-height);
   grid-template-areas:
     "title"
