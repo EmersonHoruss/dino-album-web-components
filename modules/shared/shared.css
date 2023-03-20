@@ -15,7 +15,7 @@ large:    > 1008px
   --layout-content-height: calc(100% - var(--out-content-height));
 
   --layout-nav-width-medium: 10rem;
-  --layout-nav-width-large: 15rem;
+  --layout-nav-width-large: 25rem;
   --layout-content-width-medium: calc(100% - var(--layout-nav-width-medium));
   --layout-content-width-large: calc(100% - var(--layout-nav-width-large));
 

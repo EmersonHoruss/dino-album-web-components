@@ -32,6 +32,7 @@ section {
   grid-area: content;
   display: flex;
   font-size: 1.1rem;
+  line-height: 2rem;
 }
 
 .title,
@@ -51,3 +52,7 @@ lottie-player {
   width: var(--lottie-height);
   height: var(--lottie-height);
 }
+
+/* Styles nav
+Responsive content
+Fix cards */

@@ -53,7 +53,7 @@ app-nav {
       "nav content";
     grid-template-columns:
       var(--layout-nav-width-medium)
-      var(--layout-content-width);
+      var(--layout-content-width-medium);
   }
 }
 
