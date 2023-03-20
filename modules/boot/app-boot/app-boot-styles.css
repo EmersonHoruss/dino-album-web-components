@@ -32,7 +32,6 @@ app-header {
 
 app-nav {
   grid-area: nav;
-  background-color: yellow;
 }
 
 .closed-nav-layout {
@@ -52,6 +51,16 @@ app-nav {
       "nav title"
       "nav content"
       "nav content";
-    grid-template-columns: var(--layout-nav-width) var(--layout-content-width);
+    grid-template-columns:
+      var(--layout-nav-width-medium)
+      var(--layout-content-width);
+  }
+}
+
+@media (min-width: 1008px) {
+  #layout {
+    grid-template-columns:
+      var(--layout-nav-width-large)
+      var(--layout-content-width-large);
   }
 }

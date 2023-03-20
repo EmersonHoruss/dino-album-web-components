@@ -3,6 +3,7 @@
   height: 100%;
   display: flex;
   justify-content: space-between;
+  box-shadow: inset -3px 0 10px -7px black;
   align-items: center;
 }
 
