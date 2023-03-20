@@ -48,7 +48,6 @@ class AppBootElement extends HTMLElement {
         component.style["display"] = "block"
         component.style["width"] = "100%"
         component.style["height"] = "100%"
-        component.style["overflow-y"] = "scroll"
         this.shadowRoot.getElementById("content").appendChild(component)
     }
 
