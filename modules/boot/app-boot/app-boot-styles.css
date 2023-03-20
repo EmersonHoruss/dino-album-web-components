@@ -37,13 +37,12 @@ app-nav {
   display: block;
 }
 
-/* @media (min-width: 640px) {
+@media (min-width: 640px) {
   #layout {
     grid-template-areas:
       "nav title"
+      "nav content"
       "nav content";
-    grid-template-columns: ;
+    grid-template-columns: var(--layout-nav-width) var(--layout-content-width);
   }
-
-
-} */
+}
