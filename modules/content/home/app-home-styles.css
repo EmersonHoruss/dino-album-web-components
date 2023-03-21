@@ -32,7 +32,6 @@ section {
 .content {
   grid-area: content;
   display: flex;
-  font-size: 1.2rem;
   line-height: 2rem;
   /* padding: 0 8%; */
 }
@@ -82,7 +81,7 @@ lottie-player {
     justify-content: end;
     align-items: center;
     padding-bottom: 3rem;
-}
+  }
 
   .wrapper-lottie-medium,
   .wrapper-lottie-medium lottie-player {
@@ -91,7 +90,6 @@ lottie-player {
   }
 
   .content-medium {
-    font-size: 1.2rem;
     text-align: center;
-}
+  }
 }

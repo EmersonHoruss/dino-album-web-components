@@ -1,6 +1,40 @@
+/* @import url("./assets/fonts/Caesar_Dressing/CaesarDressing-Regular.ttf");
+@import url("./assets/fonts/UnifrakturMaguntia/UnifrakturMaguntia-Regular.ttf"); */
+
+@font-face {
+  font-family: "CaesarDressing";
+  src: local("CaesarDressing"),
+    url("./assets/fonts/Caesar_Dressing/CaesarDressing-Regular.ttf")
+      format("opentype");
+}
+
+@font-face {
+  font-family: "MountainsChristmas";
+  src: local("MountainsChristmas"),
+    url("./assets/fonts/Mountains_of_Christmas/MountainsofChristmas-Bold.ttf")
+      format("opentype"),
+    url("./assets/fonts/Mountains_of_Christmas/MountainsofChristmas-Regular.ttf")
+      format("opentype");
+}
+
+@font-face {
+  font-family: "UnifrakturMaguntia";
+  src: local("UnifrakturMaguntia"),
+    url("./assets/fonts/UnifrakturMaguntia/UnifrakturMaguntia-Regular.ttf")
+      format("opentype");
+}
+
+@font-face {
+  font-family: "Yellowtail";
+  src: local("Yellowtail"),
+    url("./assets/fonts/Yellowtail/Yellowtail-Regular.ttf") format("opentype");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "CaesarDressing", "MountainsChristmas", "UnifrakturMaguntia",
+    "Yellowtail", cursive;
+  font-size: 1.1rem;
 }
-
