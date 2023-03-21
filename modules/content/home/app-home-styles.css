@@ -1,18 +1,19 @@
 * {
-  --wrapper-lottie-height: 300px;
-  --lottie-height: 280px;
-  --app-home-title-height: 4.5rem;
-  --content-height: calc(
-    100% - (var(--wrapper-lottie-height) + var(--app-home-title-height))
+  --wrapper-lottie-height-small: 300px;
+  --lottie-height-small: 280px;
+  --app-home-title-height-small: 4.5rem;
+  --content-height-small: calc(
+    100% -
+      (var(--wrapper-lottie-height-small) + var(--app-home-title-height-small))
   );
 }
 
 section {
   display: grid;
   grid-template-rows:
-    var(--app-home-title-height)
-    var(--wrapper-lottie-height)
-    var(--content-height);
+    var(--app-home-title-height-small)
+    var(--wrapper-lottie-height-small)
+    var(--content-height-small);
   grid-template-areas:
     "title"
     "lottie"
@@ -31,8 +32,9 @@ section {
 .content {
   grid-area: content;
   display: flex;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 2rem;
+  /* padding: 0 8%; */
 }
 
 .title,
@@ -49,10 +51,47 @@ app-carousel {
 }
 
 lottie-player {
-  width: var(--lottie-height);
-  height: var(--lottie-height);
+  width: var(--lottie-height-small);
+  height: var(--lottie-height-small);
 }
 
-/* Styles nav
-Responsive content
-Fix cards */
+@media (min-width: 400px) {
+  .content {
+    padding: 0 8%;
+  }
+}
+
+@media (min-width: 500px) {
+  .content {
+    padding: 0 10%;
+  }
+}
+
+@media (min-width: 1008px) {
+  .section-medium {
+    grid-template-rows: 40% 60%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+      "lottie title"
+      "lottie content";
+  }
+
+  .title-medium {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    padding-bottom: 3rem;
+}
+
+  .wrapper-lottie-medium,
+  .wrapper-lottie-medium lottie-player {
+    width: 100%;
+    height: 100%;
+  }
+
+  .content-medium {
+    font-size: 1.2rem;
+    text-align: center;
+}
+}

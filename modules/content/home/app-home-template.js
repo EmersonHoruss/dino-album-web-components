@@ -2,12 +2,12 @@ const template = document.createElement("template")
 
 template.innerHTML = `
 <div id="home" class="wrapper">
-        <section id="about" class="full-view top-as-padding bottom-as-padding">
-                <div class="title"> 
+        <section id="about" class="full-view top-as-padding bottom-as-padding section-medium">
+                <div class="title title-medium"> 
                         <h2>About</h2>
                 </div>
                 
-                <div class="wrapper-lottie">
+                <div class="wrapper-lottie wrapper-lottie-medium">
                         <lottie-player
                                 background="transparent" 
                                 speed="1" 
@@ -16,7 +16,7 @@ template.innerHTML = `
                         </lottie-player>
                 </div>
                 
-                <div class="content">
+                <div class="content content-medium">
                         <p>
                                 Dino's project is an international company and 
                                 is working for you since 2023 a.C. giving you 
@@ -27,12 +27,12 @@ template.innerHTML = `
                 </div>
         </section>
 
-        <section id="founder" class="full-view top-as-padding bottom-as-padding">
-                <div class="title"> 
+        <section id="founder" class="full-view top-as-padding bottom-as-padding section-medium">
+                <div class="title title-medium"> 
                         <h2>The Founder</h2>
                 </div>
                 
-                <div class="wrapper-lottie">
+                <div class="wrapper-lottie wrapper-lottie-medium">
                         <lottie-player
                                 background="transparent" 
                                 speed="1" 
@@ -41,7 +41,7 @@ template.innerHTML = `
                         </lottie-player>
                 </div>
                 
-                <div class="content">
+                <div class="content content-medium">
                         <p>
                                 Drako dino is from Peru's. He grew up with their 
                                 parent in the mountains. He's a very creative
